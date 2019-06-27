@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Focus Timer</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,900i|Oxygen+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+  <!-- <script src="sketch.js"></script> -->
+</head>
+
+<body>
+  <header>
+    <h1>Focus Timer</h1>
+  </header>
+
+  <div class="timer">
+    <div class="timer__controls">
+      <button data-time="1500" class="timer__button">Pomodoro</button>
+      <button data-time="300" class="timer__button">Short Break</button>
+      <button data-time="600" class="timer__button">Long Break</button>
+      <button data-time="2700" class="timer__button">Extended</button>
+      <form name="customForm" id="custom">
+        <input type="text" name="minutes" placeholder="Enter Minutes">
+      </form>
+    </div>
+    <div class="display">
+      <h1 class="display__time-left"></h1>
+      <p class="display__end-time"></p>
+    </div>
+    <div class="timer__controls2">
+      <button class="timer__start">Start</button>
+      <button class="timer__stop">Stop</button>
+    </div>
+  </div>
+
+  <script src="timer.js"></script>
+
+</body>
+
+</html>
