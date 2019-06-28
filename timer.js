@@ -1,26 +1,8 @@
-// function setup() {
-//   createCanvas(400, 400);
-//   angleMode(DEGREES);
-// }
-
-// function draw() {
-//   clear();
-
-//   translate(200, 200);
-//   rotate(-90);
-
-//   let sc = second();
-
-//   strokeWeight(35);
-//   stroke(255, 100, 150);
-//   noFill();
-//   let secondAngle = map(sc, 0, 20, 0, 360);
-//   arc(0, 0, 300, 300, 0, secondAngle);
-// }
-
 let countdown;
 let selectedTimer = 1500;
 let timerOn = false;
+let secondsLeft = 0;
+let pausedTime = 0;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 const selectButtons = document.querySelectorAll('[data-time]');
@@ -33,7 +15,7 @@ displayTimeLeft(selectedTimer);
 selectButtons.forEach(button => button.addEventListener('click', setTimer));
 startButton.addEventListener('click', function (event) {
   if (!timerOn) {
-    startButton.innerHTML = "Stop";
+    startButton.innerHTML = "Pause";
     startTimer();
     timerOn = true;
   } else {
@@ -54,7 +36,7 @@ function timer(seconds) {
   displayEndTime(then);
 
   countdown = setInterval(() => {
-    const secondsLeft = Math.round((then - Date.now()) / 1000);
+    secondsLeft = Math.round((then - Date.now()) / 1000);
     // Check if timer hit 0
     if (secondsLeft < 0) {
       clearInterval(countdown);
@@ -82,6 +64,7 @@ function displayEndTime(timestamp) {
 }
 
 function setTimer() {
+  pausedTime = 0;
   clearInterval(countdown);
   endTime.textContent = 'Ready to begin!';
   startButton.innerHTML = "Start";
@@ -91,9 +74,15 @@ function setTimer() {
 }
 
 function startTimer() {
-  timer(selectedTimer);
+  if (pausedTime == 0) {
+    timer(selectedTimer);
+  } else {
+    timer(pausedTime);
+  }
 }
 
 function stopTimer() {
   clearInterval(countdown);
+  pausedTime = secondsLeft;
+  console.log(pausedTime);
 }
