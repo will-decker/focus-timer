@@ -19,16 +19,31 @@
 // }
 
 let countdown;
-let selectedTimer;
+let selectedTimer = 1500;
+let timerOn = false;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 const selectButtons = document.querySelectorAll('[data-time]');
 const startButton = document.querySelector('.timer__start');
 const stopButton = document.querySelector('.timer__stop');
 
+// Display default timer on page load
+displayTimeLeft(selectedTimer);
+
 selectButtons.forEach(button => button.addEventListener('click', setTimer));
-startButton.addEventListener('click', startTimer);
-stopButton.addEventListener('click', stopTimer);
+startButton.addEventListener('click', function (event) {
+  if (!timerOn) {
+    startButton.innerHTML = "Stop";
+    startTimer();
+    timerOn = true;
+  } else {
+    startButton.innerHTML = "Start";
+    stopTimer();
+    timerOn = false;
+  }
+});
+
+endTime.textContent = 'Select an option above and click start to begin.';
 
 function timer(seconds) {
   clearInterval(countdown);
@@ -68,7 +83,9 @@ function displayEndTime(timestamp) {
 
 function setTimer() {
   clearInterval(countdown);
-  console.log(this.dataset);
+  endTime.textContent = 'Ready to begin!';
+  startButton.innerHTML = "Start";
+  timerOn = false;
   selectedTimer = parseInt(this.dataset.time);
   displayTimeLeft(selectedTimer);
 }
