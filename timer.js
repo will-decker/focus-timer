@@ -13,6 +13,7 @@ const stopButton = document.querySelector('.timer__stop');
 displayTimeLeft(selectedTimer);
 
 selectButtons.forEach(button => button.addEventListener('click', setTimer));
+
 startButton.addEventListener('click', function (event) {
   if (!timerOn) {
     startButton.innerHTML = "Pause";
@@ -84,5 +85,4 @@ function startTimer() {
 function stopTimer() {
   clearInterval(countdown);
   pausedTime = secondsLeft;
-  console.log(pausedTime);
 }
