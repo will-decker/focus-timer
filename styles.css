@@ -16,7 +16,7 @@ body {
 }
 
 header {
-  padding: 5em 0;
+  padding: 4em 0;
 }
 
 header h1 {
@@ -26,6 +26,7 @@ header h1 {
   font-weight: 800;
   font-style: italic;
   letter-spacing: 5px;
+  padding-bottom: 15px;
   border-bottom: 1px solid white;
 }
 
@@ -141,34 +142,6 @@ footer p {
   padding-top: 1em;
   border-top: 1px solid white;
 }
-
-
-/* @media only screen and (max-width: 1200px) {
-  .display__time-left {
-    font-size: 18rem;
-  }
-
-  .timer__controls form {
-    display: block;
-  }
-
-  .timer__controls input.custom-minutes {
-    font-size: 1.5em;
-    padding: 2rem;
-  }
-  
-  .timer__button {
-    
-    height: 60px;
-    margin-right: 10px;
-  }
-
-  .display__end-time {
-    width: 75%;
-    font-size: 3rem;
-  }
-} 
-*/
 
 @media only screen and (max-width: 850px) {
   header {
