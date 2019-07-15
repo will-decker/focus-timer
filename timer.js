@@ -3,6 +3,7 @@ let selectedTimer = 1500;
 let timerOn = false;
 let secondsLeft = 0;
 let pausedTime = 0;
+const alarm = new Audio('analog-alarm.mp3');
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 const selectButtons = document.querySelectorAll('[data-time]');
@@ -26,7 +27,7 @@ startButton.addEventListener('click', function (event) {
   }
 });
 
-endTime.textContent = 'Select an option above and click start to begin.';
+endTime.textContent = 'Select a timer and click start to begin.';
 
 function timer(seconds) {
   clearInterval(countdown);
@@ -38,6 +39,10 @@ function timer(seconds) {
 
   countdown = setInterval(() => {
     secondsLeft = Math.round((then - Date.now()) / 1000);
+    if (secondsLeft == 0) {
+      alarm.play();
+      startButton.innerHTML = '<i class="fas fa-play fa-2x">';
+    }
     // Check if timer hit 0
     if (secondsLeft < 0) {
       clearInterval(countdown);
@@ -67,6 +72,7 @@ function displayEndTime(timestamp) {
 function setTimer() {
   pausedTime = 0;
   clearInterval(countdown);
+  alarm.pause();
   endTime.textContent = 'Ready to begin!';
   startButton.innerHTML = '<i class="fas fa-play fa-2x">';
   timerOn = false;
@@ -86,3 +92,17 @@ function stopTimer() {
   clearInterval(countdown);
   pausedTime = secondsLeft;
 }
+
+document.customForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  pausedTime = 0;
+  clearInterval(countdown);
+  const mins = this.minutes.value;
+  endTime.textContent = 'Ready to begin!';
+  startButton.innerHTML = '<i class="fas fa-play fa-2x">';
+  timerOn = false;
+  selectedTimer = mins * 60;
+  displayTimeLeft(selectedTimer);
+  // timer(mins * 60);
+  this.reset();
+});
