@@ -16,11 +16,11 @@ selectButtons.forEach(button => button.addEventListener('click', setTimer));
 
 startButton.addEventListener('click', function (event) {
   if (!timerOn) {
-    startButton.innerHTML = "Pause";
+    startButton.innerHTML = '<i class="fas fa-pause fa-2x">';
     startTimer();
     timerOn = true;
   } else {
-    startButton.innerHTML = "Start";
+    startButton.innerHTML = '<i class="fas fa-play fa-2x">';
     stopTimer();
     timerOn = false;
   }
@@ -68,7 +68,7 @@ function setTimer() {
   pausedTime = 0;
   clearInterval(countdown);
   endTime.textContent = 'Ready to begin!';
-  startButton.innerHTML = "Start";
+  startButton.innerHTML = '<i class="fas fa-play fa-2x">';
   timerOn = false;
   selectedTimer = parseInt(this.dataset.time);
   displayTimeLeft(selectedTimer);

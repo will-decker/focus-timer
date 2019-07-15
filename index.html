@@ -8,7 +8,7 @@
   <title>Focus Timer</title>
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,900i|Oxygen+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+  <script src="https://kit.fontawesome.com/9f06756ce1.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
       <button data-time="600" class="timer__button">Long Break</button>
       <button data-time="2700" class="timer__button">Extended</button>
       <form name="customForm" id="custom">
-        <input type="text" name="minutes" placeholder="Enter Minutes">
+        <input class="custom-minutes" type="text" name="minutes" placeholder="Enter Minutes">
       </form>
     </div>
     <div class="display">
@@ -31,10 +31,14 @@
       <p class="display__end-time"></p>
     </div>
     <div class="timer__controls2">
-      <button class="timer__start">Start</button>
+      <button class="timer__start"><i class="fas fa-play fa-2x"></i></button>
 
     </div>
   </div>
+
+  <footer>
+    <p>Designed & Coded by Will Decker &copy;2019</p>
+  </footer>
 
   <script src="timer.js"></script>
 

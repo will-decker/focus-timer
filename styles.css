@@ -26,6 +26,7 @@ header h1 {
   font-weight: 800;
   font-style: italic;
   letter-spacing: 5px;
+  border-bottom: 1px solid white;
 }
 
 .display__time-left {
@@ -100,7 +101,7 @@ header h1 {
 }
 
 .display__end-time {
-  font-size: 4rem;
+  font-size: 3.6rem;
   color: white;
   margin-bottom: 2em;
 }
@@ -123,5 +124,118 @@ header h1 {
 
 .timer__controls2 .timer__start:hover {
   transform: scale(1.04);
+}
+
+.timer__controls2 .timer__start .fa-play {
+  margin-left: 10px
+}
+
+footer {
+  color: white;
+  font-size: 2em;
+  padding: 3em 0;
+}
+
+footer p {
+  width: 100%;
+  padding-top: 1em;
+  border-top: 1px solid white;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .display__time-left {
+    font-size: 18rem;
+  }
+
+  .timer__controls form {
+    display: block;
+  }
+
+  .timer__controls input.custom-minutes {
+    flex: 0;
+    width: 175px;
+    font-size: 1.5em;
+    padding: 2rem;
+  }
+  
+  .timer__button {
+    /* font-size: 1.5rem; */
+    height: 60px;
+    margin-right: 10px;
+  }
+
+  .display__end-time {
+    width: 75%;
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  header {
+    padding-bottom: 3em;
+  }
+
+  .timer__controls {
+    order: 3;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+  }
+
+  .timer__controls form {
+    width: 100%;
+  }
+
+  .timer__controls input.custom-minutes {
+    width: 100%;
+    margin-right: 10px;
+  }
+
+  .timer__button {
+    width: 100%;
+    height: 60px;
+    margin-right: 0;
+    margin-bottom: 18px;
+  }
+
+  .display {
+    order: 1;
+  }
+
+  .timer__controls2 {
+    order: 2;
+    margin-bottom: 75px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header h1 {
+    font-size: 6rem;
+  }
+
+  .timer__controls {
+    width: 90%;
+  }
+
+  .display__time-left {
+    font-size: 15rem;
+  }
+
+  .display__end-time {
+    width: 75%;
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  header h1 {
+    letter-spacing: 2px;
+    font-size: 5rem;
+  }
+
+  .display__time-left {
+    font-size: 10rem;
+  }
 }
 
